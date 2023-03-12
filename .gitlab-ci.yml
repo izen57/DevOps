@@ -13,7 +13,7 @@ file_generation:
     - schedules
   artifacts:
     paths:
-      - lab02
+      - lab02/meme.jpg
 
 checking_configuration:
   tags:
