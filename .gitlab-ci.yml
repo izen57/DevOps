@@ -9,8 +9,6 @@ file_generation:
   stage: build
   script:
     - convert lab02/vector.jpg -bordercolor black -border 3 -bordercolor white -border 2 -background black -fill white -pointsize 24 label:Гений -trim +repage -bordercolor black -border 10 -gravity South -append -bordercolor black -border 10 -gravity South -chop 0x10 lab02/meme.jpg
-  only:
-    - schedules
   artifacts:
     paths:
       - lab02/meme.jpg
@@ -21,8 +19,6 @@ checking_configuration:
   stage: test
   script:
     - sudo nginx -t
-  only:
-    - schedules
 
 #test-code-job2:
 #  stage: test
