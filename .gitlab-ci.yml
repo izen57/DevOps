@@ -4,11 +4,13 @@ stages:
   - deploy
 
 file_generation:
+  tags: DevOpsShell
   stage: build
   script:
     - tpage --define start_time=$CI_JOB_STARTED_AT --define com_time=$CI_JOB_URL lab02/main.html
 
-test-code-job1:
+checking_configuration:
+  tags: DevOpsShell
   stage: test
   script:
     - sudo nginx -t
