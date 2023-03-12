@@ -9,6 +9,8 @@ file_generation:
   stage: build
   script:
     - tpage --define start_time=$CI_JOB_STARTED_AT --define com_time=$CI_JOB_URL lab02/main.html
+  only:
+    - schedules
 
 checking_configuration:
   tags:
@@ -16,6 +18,8 @@ checking_configuration:
   stage: test
   script:
     - sudo nginx -t
+  only:
+    - schedules
 
 #test-code-job2:
 #  stage: test
