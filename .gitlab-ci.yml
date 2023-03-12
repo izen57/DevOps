@@ -10,7 +10,7 @@ file_generation:
   #before_script:
   #  - sudo apt-get install libtemplate-perl
   script:
-    - tpage --define start_time=$CI_JOB_STARTED_AT --define com_time=$CI_JOB_URL lab02/main.html > lab02/main.html
+    - convert vector.jpg -bordercolor black -border 3 -bordercolor white -border 2 -background black -fill white -pointsize 24 label:Гений -trim +repage -bordercolor black -border 10 -gravity South -append -bordercolor black -border 10 -gravity South -chop 0x10 vector.jpg
   only:
     - schedules
 
