@@ -8,7 +8,7 @@ file_generation:
     - DevOpsShell
   stage: build
   before_script:
-    - apt-get install libtemplate-perl
+    - sudo apt-get install libtemplate-perl
   script:
     - tpage --define start_time=$CI_JOB_STARTED_AT --define com_time=$CI_JOB_URL lab02/main.html > lab02/main.html
   only:
