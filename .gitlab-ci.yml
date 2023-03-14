@@ -28,5 +28,7 @@ deploying:
     - if: $CI_COMMIT_BRANCH == "develop" || $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
       when: manual
   script:
-    - scp -P 3000 /etc/nginx/sites-enabled/default user@192.168.3.72:/etc/nginx/sites-enabled/default
-    - scp -P 3000 ~/devops/lab02/vector.jpg user@192.168.3.72:~/devops/lab02/vector.jpg
+    # sudo chown {имя пользователя на сервера-получателе} /etc/nginx/sites-enabled/default
+    - scp /etc/nginx/sites-enabled/default user@192.168.3.72:/etc/nginx/sites-enabled/default
+    # на сервере-получателе: mkdir ~/devops && ~/devops/lab02
+    - scp ~/devops/lab02/vector.jpg user@192.168.3.72:~/devops/lab02/vector.jpg
