@@ -13,15 +13,20 @@ file_generation:
     paths:
       - lab02/meme.jpg
 
-checking_configuration:
+configuration_checking:
   tags:
     - DevOpsShell
   stage: test
   script:
     - sudo nginx -t
 
-#test-code-job2:
-#  stage: test
-#  script:
-#    - echo "If the files are built successfully, test other files with a different command:"
-#    - rake test2
+deploying:
+  tags:
+    - DevOpsShell
+  stage: deploy
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop" || $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: manual
+  script:
+    - scp -P 3000 /etc/nginx/sites-enabled/default user@192.168.3.72:/etc/nginx/sites-enabled/default
+    - scp -P 3000 ~/devops/lab02/vector.jpg user@192.168.3.72:~/devops/lab02/vector.jpg
