@@ -8,7 +8,7 @@ file_generation:
     - DevOpsShell
   stage: build
   script:
-    - convert lab02/vector.jpg -bordercolor black -border 3 -bordercolor white -border 2 -background black -fill white -pointsize 24 label:Гений -trim +repage -bordercolor black -border 10 -gravity South -append -bordercolor black -border 10 -gravity South -chop 0x10 lab02/meme.jpg
+    - convert lab02/vector.jpg -bordercolor black -border 3 -bordercolor white -border 2 -background black -fill white -pointsize 24 label:'$CI_COMMIT_AUTHOR гений' -trim +repage -bordercolor black -border 10 -gravity South -append -bordercolor black -border 10 -gravity South -chop 0x10 lab02/meme.jpg
   artifacts:
     paths:
       - lab02/meme.jpg
@@ -31,7 +31,7 @@ deploying:
       when: manual
   script:
     # sudo chown {имя пользователя на сервера-получателе} /etc/nginx/sites-enabled/default
-    #- scp /etc/nginx/sites-enabled/default2 user@192.168.3.72:/etc/nginx/sites-enabled/default
+    - sshpass -p $sudo_password scp -r /etc/nginx/sites-enabled/default2 user@192.168.3.72:/etc/nginx/sites-enabled/default
     # на сервере-получателе: mkdir ~/devops && ~/devops/lab02
-    - scp ~/devops/lab02/vector.jpg user@192.168.3.72:~/devops/lab02/vector.jpg
-    - scp ~/devops/lab02/meme.jpg user@192.168.3.72:~/devops/lab02/meme.jpg
+    - sshpass -p $sudo_password scp -r ~/devops/lab02/vector.jpg user@192.168.3.72:~/devops/lab02/vector.jpg
+    - sshpass -p $sudo_password scp -r ~/devops/lab02/meme.jpg user@192.168.3.72:~/devops/lab02/meme.jpg
