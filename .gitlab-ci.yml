@@ -34,13 +34,10 @@ deploying:
     - if: $CI_COMMIT_BRANCH == "develop" || $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
       when: manual
   script:
-    - pwd
-    # sudo chown {имя пользователя на сервера-получателе} /etc/nginx/sites-enabled/default
+    - ssh user@192.168.3.72 "sudo chown user /etc/nginx/sites-enabled/default"
     - sudo sshpass -p $sudo_password scp lab02/default2 user@192.168.3.72:/etc/nginx/sites-enabled/default
     - sudo systemctl restart nginx
-    # на сервере-получателе: mkdir ~/devops && ~/devops/lab02
+    - ssh user@192.168.3.72 "mkdir ~/devops && ~/devops/lab02"
     - sudo sshpass -p $sudo_password scp lab02/vector.jpg user@192.168.3.72:~/devops/lab02/vector.jpg
-    #- curl -o lab/02 --location --form "job-token='$CI_JOB_TOKEN'" "https://git.iu7.bmstu.ru/api/v4/projects/5516/jobs/'$CI_JOB_ID'/artifacts"
     - sudo sshpass -p $sudo_password scp lab02/meme.jpg user@192.168.3.72:~/devops/lab02/meme.jpg
-    - ls
-    - ls lab02
+    - ssh user@192.168.3.72 "sudo chmod -R 777 /home/user"
