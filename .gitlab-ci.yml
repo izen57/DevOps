@@ -34,6 +34,7 @@ deploying:
     - if: $CI_COMMIT_BRANCH == "develop" || $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
       when: manual
   script:
+    - pwd
     # sudo chown {имя пользователя на сервера-получателе} /etc/nginx/sites-enabled/default
     - sshpass -p $sudo_password scp lab02/default2 user@192.168.3.72:/etc/nginx/sites-enabled/default
     # на сервере-получателе: mkdir ~/devops && ~/devops/lab02
