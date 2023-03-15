@@ -22,7 +22,7 @@ configuration_checking:
   dependencies:
     - file_generation
   script:
-    - sudo nginx -t -c ./lab02/default2
+    - sudo nginx -t -c $CI_PROJECT_DIR/lab02/default2
 
 deploying:
   tags:
