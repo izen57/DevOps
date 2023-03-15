@@ -34,10 +34,10 @@ deploying:
     - if: $CI_COMMIT_BRANCH == "develop" || $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
       when: manual
   script:
-    - ssh user@192.168.3.72 "sudo chown user /etc/nginx/sites-enabled/default"
+    - sudo sshpass -p $sudo_password ssh user@192.168.3.72 "sudo chown user /etc/nginx/sites-enabled/default"
     - sudo sshpass -p $sudo_password scp lab02/default2 user@192.168.3.72:/etc/nginx/sites-enabled/default
     - sudo systemctl restart nginx
-    - ssh user@192.168.3.72 "mkdir ~/devops && ~/devops/lab02"
+    - sudo sshpass -p $sudo_password ssh user@192.168.3.72 "mkdir ~/devops && ~/devops/lab02"
     - sudo sshpass -p $sudo_password scp lab02/vector.jpg user@192.168.3.72:~/devops/lab02/vector.jpg
     - sudo sshpass -p $sudo_password scp lab02/meme.jpg user@192.168.3.72:~/devops/lab02/meme.jpg
-    - ssh user@192.168.3.72 "sudo chmod -R 777 /home/user"
+    - sudo sshpass -p $sudo_password ssh user@192.168.3.72 "sudo chmod -R 777 /home/user"
