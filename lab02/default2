@@ -40,8 +40,8 @@ server {
         server_name _;
 
         location / {
-                autoindex_localtime on;
                 autoindex on;
+                autoindex_localtime on;
         }
 
         # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
