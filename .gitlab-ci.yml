@@ -12,7 +12,7 @@ file_generation:
   artifacts:
     paths:
       - lab02/meme.jpg
-    expire_in: 5 mins
+    expire_in: 1 day
 
 configuration_checking:
   tags:
