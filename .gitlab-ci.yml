@@ -22,7 +22,7 @@ configuration_checking:
   dependencies:
     - file_generation
   script:
-    - sudo nginx -t
+    - sudo nginx -t -c lab02/default2
 
 deploying:
   tags:
