@@ -18,6 +18,8 @@ configuration_checking:
   tags:
     - DevOpsShell
   stage: test
+  dependencies:
+    - file_generation
   script:
     - sudo nginx -t
 
