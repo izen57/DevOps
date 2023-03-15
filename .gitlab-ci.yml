@@ -40,3 +40,4 @@ deploying:
     #- curl -o lab/02 --location --form "job-token='$CI_JOB_TOKEN'" "https://git.iu7.bmstu.ru/api/v4/projects/5516/jobs/'$CI_JOB_ID'/artifacts"
     - sudo sshpass -p $sudo_password scp -r lab02/meme.jpg user@192.168.3.72:~/devops/lab02/meme.jpg
     - ls
+    - ls lab02
