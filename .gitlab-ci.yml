@@ -8,7 +8,7 @@ file_generation:
     - DevOpsShell
   stage: build
   script:
-    - convert lab02/vector.jpg -bordercolor black -border 3 -bordercolor white -border 2 -background black -fill white -pointsize 24 label:"а '$CI_COMMIT_AUTHOR' матрица" -trim +repage -bordercolor black -border 10 -gravity South -append -bordercolor black -border 10 -gravity South -chop 0x10 lab02/meme.jpg
+    - convert lab02/vector.jpg -bordercolor black -border 3 -bordercolor white -border 2 -background black -fill white -pointsize 24 label:"'это $CI_COMMIT_AUTHOR' в 'CI_JOB_STARTED_AT'" -trim +repage -bordercolor black -border 10 -gravity South -append -bordercolor black -border 10 -gravity South -chop 0x10 lab02/meme.jpg
   artifacts:
     untracked: true
     paths:
