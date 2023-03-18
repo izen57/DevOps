@@ -35,7 +35,7 @@ deploying:
       when: manual
   script:
     # на сервере-получателе: sudo chown user /etc/nginx/sites-enabled/default
-    - sudo sshpass -p $sudo_password scp lab02/default2 user@192.168.3.72:/etc/nginx/sites-enabled/defaul2
+    - sudo sshpass -p $sudo_password scp lab02/default2 user@192.168.3.72:/etc/nginx/sites-enabled/default2
     # там же: mkdir ~/devops && ~/devops/lab02
     - sudo sshpass -p $sudo_password scp lab02/vector.jpg user@192.168.3.72:~/devops/lab02/vector.jpg
     - sudo sshpass -p $sudo_password scp lab02/meme.jpg user@192.168.3.72:~/devops/lab02/meme.jpg
