@@ -1,0 +1,10 @@
+groups:
+- name: Critical alerts
+  rules:
+  - alert: InstanceDown
+    expr: nginx_up == 0
+    for: 5s
+    labels:
+      severity: critical
+    annotations:
+      description: 'Nginx был недоступен более 5 секунд.'

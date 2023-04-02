@@ -1,0 +1,18 @@
+route:
+  groub_by: ['alertname', 'instance', 'severity']
+  group_wait: 30s
+  group_interval: 1s
+  repeat_interval: 15m
+  receiver: 'telepush'
+receivers:
+  - name: 'telepush'
+    webhook_configs:
+      - url: 'https://telepush.dev/api/inlets/alertmanager/ddcc28'
+        http_config:
+
+inhibit_rules:
+  - source_match:
+      severity: 'critical'
+    target_match:
+      severity: 'warning'
+    equal: ['alertname', 'dev', 'instance']
